@@ -12,3 +12,4 @@ def read_file(filename):
 
 contents = read_file(filename="my_file.txt")
 print(contents)  # Output: "Hello, world!\nI just did my first Assignment of week 2."
+ 
