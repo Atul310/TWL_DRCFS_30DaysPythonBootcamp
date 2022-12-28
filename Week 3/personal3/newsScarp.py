@@ -1,38 +1,23 @@
 
-
+import bs4
 import requests
-from bs4 import BeautifulSoup
-
-# Make a request to the website
-url = 'https://www.nepalnews.com/'
-page = requests.get(url)
-
-#covid_url="https://covid19.mohp.gov.np/"
-# parse the html content
-
-soup = BeautifulSoup(page.content, 'html.parser')
-articles=soup.find_all('h3')
-news_articles=[]
-
-
-# loop through all the articles and add them on new list 
-for article in articles:
-	try:
-		news_articles.append(article.find_all('a')[0].text)
-	except Exception:
-		continue
-
-	
-print(news_articles)
-sn=0
-print("Top headings today")
-for news in news_articles:
-	print(f'''
-{sn} {news}
-''') 
-	print("============================")
-	sn+=1
-
+from datetime import datetime
 ## it us not alloweded to scrape any website without the permisiion if the 
 ## we should check the robots.txt in order to scrape the data 
 ## 
+def Url_request(url:str)-> str:
+	return requests.get(url="").text
+
+def parse_html(Unparsedhtml:str)-> bs4.BeautifulSoup:
+	return bs4.BeautifulSoup(Unparsedhtml,"htmlparser")
+
+def get_detail_fromSoup(soup:bs4.BeautifulSoup)-> str:
+	price_Element = soup.find("",)
+	priceNepali=price_Element
+	return priceNepali
+
+def Write_file(price:str, filename:str):
+	with open(filename ,mode='a',encoding='') as file :
+		file.write(price)
+		file.write("\n")
+
