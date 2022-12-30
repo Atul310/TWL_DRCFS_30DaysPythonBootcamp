@@ -27,6 +27,6 @@ print(e2.display())
 ## to access method outside the class 
 ##obj_name.method_name()
 ##e1.display()
+#To which object we call a function that object works for 
 
-
-
+#that particular function 
